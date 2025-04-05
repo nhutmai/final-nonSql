@@ -11,13 +11,14 @@ class BookController {
             let filter = {
                 ...(title && {title: new RegExp(title, 'i')}),
                 ...(genre && {genre: new RegExp(genre, 'i')}),
-                ...(publishYear && {publishYear: publishYear}),
+                ...(publishYear && {publishing_year: +publishYear}),
             };
+            console.log(filter);
             const books = await Book.find(filter)
                 .select('_id title publishing_year num_of_favorites')
                 .populate({
                     path: 'author_id',
-                    select: 'full_name',
+                    select: 'author_full_name',
                 })
                 .skip(skip)
                 .limit(limit)

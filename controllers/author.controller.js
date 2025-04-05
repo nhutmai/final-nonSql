@@ -13,7 +13,7 @@ class AuthorController {
                     {
                         $project: {
                             _id: 1,
-                            full_name: 1,
+                            author_full_name: 1,
                             book_count: {$size: '$books'}
                         }
                     },

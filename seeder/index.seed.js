@@ -11,9 +11,9 @@ class IndexSeed {
             await Author.deleteMany({});
 
             let authorsData = [];
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 100; i++) {
                 authorsData.push({
-                    full_name: faker.person.fullName(),
+                    author_full_name: faker.person.fullName(),
                     books: []
                 });
             }
@@ -21,7 +21,7 @@ class IndexSeed {
             console.log('authors created');
 
             let booksData = [];
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 100; i++) {
                 booksData.push({
                     title: faker.book.title(),
                     author_id: faker.helpers.arrayElement(authors)._id,
